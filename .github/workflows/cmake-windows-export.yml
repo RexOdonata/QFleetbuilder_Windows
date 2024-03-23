@@ -1,0 +1,79 @@
+# This starter workflow is for a CMake project running on a single platform. There is a different starter workflow if you need cross-platform coverage.
+# See: https://github.com/actions/starter-workflows/blob/main/ci/cmake-multi-platform.yml
+name: Windows CMake build and Release
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
+  BUILD_TYPE: Release
+
+jobs:
+  build:
+    # The CMake configure and build commands are platform agnostic and should work equally well on Windows or Mac.
+    # You can convert this to a matrix build if you need cross-platform coverage.
+    # See: https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v3
+      with:
+        version: 6.2.1
+
+    - name: Configure CMake
+      # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
+      # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+
+    - name: Build
+      # Build your program with the given configuration
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+
+    - name: copy html templates
+      shell: powershell
+      run: Copy-Item -Path ${{github.workspace}}\htmlTemplates -Destination ${{github.workspace}}\build\Fleetbuilder\Release -Recurse
+
+    - name: copy QFS File
+      shell: powershell
+      run: Copy-Item -Path ${{github.workspace}}\data -Destination ${{github.workspace}}\build\Fleetbuilder\Release -Recurse
+
+    - name: Qt Deploy
+      shell: powershell
+      run: ${{ env.Qt6_DIR }}\bin\windeployqt.exe --no-translations ${{github.workspace}}\build\Fleetbuilder\Release\QFleetbuilder.exe
+
+    - name: Store Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: QFleetWindowsDeployment
+        Path: |
+          ${{github.workspace}}/build/Fleetbuilder/Release
+
+    - name: zip outputs
+      uses: vimtor/action-zip@v1.2
+      with:
+        files: build/Fleetbuilder/Release/
+        recursive: true
+        dest: QFleetbuilder.zip
+
+    - name: get commit short
+      id: vars
+      run: echo "sha_short=$(git rev-parse --short HEAD)" >> $env:GITHUB_OUTPUT
+
+    - name: Create Release
+      uses: ncipollo/release-action@v1
+      with:
+        name: QFleetbuilder ${{ steps.date.outputs.date }}
+        artifacts: ${{github.workspace}}/QFleetbuilder.zip
+        commit: ${{github.ref}}
+        tag: alpha/v0-${{ steps.vars.outputs.sha_short }}
+
+
+
+

@@ -1,0 +1,8 @@
+{% block battlegroupHeader %}
+
+<div id="battlegroup" style="border:medium solid">
+<h3>{{ cardName }}<strong>,</strong> Strategy Rating {{ cardSR }}</h3>
+{% include htmlTemplates/groupHeader.txt %}
+</div>
+
+{% endblock %}

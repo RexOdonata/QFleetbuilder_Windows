@@ -1,0 +1,23 @@
+{% block listHeader %}
+<div id="listHeader">
+<h2>Dropfleet Commander: {{ listName }}</h2>
+<table style="height: 60px;" border="1" width="567">
+<tbody>
+<tr>
+<td style="width: 104.9px; text-align: center;"><strong>Points</strong></td>
+<td style="width: 113.367px; text-align: center;"><strong>Launch</strong></td>
+<td style="width: 104.917px; text-align: center;"><strong>Faction</strong></td>
+<td style="width: 104.917px; text-align: center;"><strong>Valid</strong></td>
+<td style="width: 104.9px; text-align: center;"><strong>Created</strong></td>
+</tr>
+<tr>
+<td style="width: 104.9px;">{{ listPoints }}</td>
+<td style="width: 113.367px;">{{ listLaunch }}</td>
+<td style="width: 104.917px;">{{ listFaction }}</td>
+<td style="width: 104.917px;">{{ listValid }}</td>
+<td style="width: 104.9px;">{{ listCreated }}</td>
+</tr>
+</tbody>
+</table>
+</div>
+{% endblock %}
