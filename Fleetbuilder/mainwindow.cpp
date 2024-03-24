@@ -62,6 +62,11 @@ void MainWindow::on_actionNew_triggered()
         delete listWidget;
     }
 
+    if (shipSelectDialog)
+    {
+        delete shipSelectDialog;
+    }
+
     listInit data;
     initListDialog * newListData = new initListDialog(this,&data);
 
@@ -164,9 +169,9 @@ bool MainWindow::loadListFromFile()
 {
     QString filename = QFileDialog::getOpenFileName(this, "Select QFleet List", QDir::currentPath(),getExtensionFilter(fileType_listData()));
 
-    QFile file(filename);
+    QByteArray bytes;
 
-    if (file.open(QIODevice::ReadOnly | QIODevice::Text))
+    if (decompressor::readCompressedFile(bytes, filename))
     {
 
         // if a list is already loaded, delete it
@@ -175,16 +180,16 @@ bool MainWindow::loadListFromFile()
             delete listWidget;
         }
 
-        QByteArray bytes = file.readAll();
-
-        file.close();
+        if (shipSelectDialog)
+        {
+            delete shipSelectDialog;
+        }
 
         QJsonParseError err;
 
         QJsonDocument jsonData = QJsonDocument::fromJson(bytes, &err);
 
         QJsonObject wrapperObj = jsonData.object();
-
 
         try
         {
@@ -272,10 +277,11 @@ void MainWindow::on_shipMenuButton_clicked()
 
 void MainWindow::slotShipPull(QFLW_Battlegroup * cardPtr)
 {
+
     if (!selectedShip.has_value())
     {
         QMessageBox msg(this);
-        msg.setText("No ship selected to add");
+        msg.setText("No valid ship selected \n Make a selection in the ship menu.");
         msg.exec();
     }
     else
@@ -294,29 +300,20 @@ bool MainWindow::saveListToFile()
 
     QString filename = QFileDialog::getSaveFileName(this, "save list", QDir::currentPath(), getExtensionFilter(fileType_listData()));
 
-    QFile file(filename);
-
     QJsonObject json = newList.toJson();
 
     QJsonObject wrapperObj;
 
     wrapperObj.insert(fileType_listData(), json);
 
-    if (file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate))
-    {
-        QJsonDocument jsonDoc(wrapperObj);
+    QJsonDocument jsonDoc(wrapperObj);
 
-        QByteArray bytes = jsonDoc.toJson(QJsonDocument::Indented);
+    QByteArray bytes = jsonDoc.toJson(QJsonDocument::Indented);
 
-        QTextStream istream(&file);
-
-        istream << bytes;
-
-        file.close();
-
+    if (compressor::writeCompressedFile(bytes,filename))
         return true;
-    }
-    else return false;
+    else
+        return false;
 }
 
 // hidden
@@ -343,7 +340,7 @@ void MainWindow::on_actionSave_triggered()
     else
     {
         QMessageBox msg(this);
-        msg.setText("No List Loaded to save");
+        msg.setText("No List to save");
         msg.exec();
     }
 

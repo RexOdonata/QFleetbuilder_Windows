@@ -43,7 +43,7 @@
         <item row="3" column="0">
          <widget class="QRadioButton" name="l4Radio">
           <property name="text">
-           <string notr="true">Level 4</string>
+           <string>Level 4</string>
           </property>
           <attribute name="buttonGroup">
            <string notr="true">radioButtonGroup</string>
@@ -53,14 +53,14 @@
         <item row="2" column="1">
          <widget class="QLabel" name="l3CostLabel">
           <property name="text">
-           <string notr="true">cost3</string>
+           <string>cost3</string>
           </property>
          </widget>
         </item>
         <item row="1" column="0">
          <widget class="QRadioButton" name="l2Radio">
           <property name="text">
-           <string notr="true">Level 2</string>
+           <string>Level 2</string>
           </property>
           <attribute name="buttonGroup">
            <string notr="true">radioButtonGroup</string>
@@ -70,21 +70,21 @@
         <item row="3" column="1">
          <widget class="QLabel" name="l4CostLabel">
           <property name="text">
-           <string notr="true">cost4</string>
+           <string>cost4</string>
           </property>
          </widget>
         </item>
         <item row="4" column="1">
          <widget class="QLabel" name="l5CostLabel">
           <property name="text">
-           <string notr="true">cost5</string>
+           <string>cost5</string>
           </property>
          </widget>
         </item>
         <item row="2" column="0">
          <widget class="QRadioButton" name="l3Radio">
           <property name="text">
-           <string notr="true">Level 3</string>
+           <string>Level 3</string>
           </property>
           <attribute name="buttonGroup">
            <string notr="true">radioButtonGroup</string>
@@ -94,14 +94,14 @@
         <item row="1" column="1">
          <widget class="QLabel" name="l2CostLabel">
           <property name="text">
-           <string notr="true">cost2</string>
+           <string>cost2</string>
           </property>
          </widget>
         </item>
         <item row="4" column="0">
          <widget class="QRadioButton" name="l5Radio">
           <property name="text">
-           <string notr="true">Level 5</string>
+           <string>Level 5</string>
           </property>
           <attribute name="buttonGroup">
            <string notr="true">radioButtonGroup</string>
@@ -111,14 +111,14 @@
         <item row="0" column="1">
          <widget class="QLabel" name="label">
           <property name="text">
-           <string notr="true">0</string>
+           <string>0</string>
           </property>
          </widget>
         </item>
         <item row="0" column="0">
          <widget class="QRadioButton" name="l0Radio">
           <property name="text">
-           <string notr="true">No Admiral</string>
+           <string>No Admiral</string>
           </property>
           <attribute name="buttonGroup">
            <string notr="true">radioButtonGroup</string>
@@ -145,7 +145,7 @@
     <item>
      <widget class="QPushButton" name="doneButton">
       <property name="text">
-       <string notr="true">Set Admiral</string>
+       <string>Set Admiral</string>
       </property>
      </widget>
     </item>

@@ -49,7 +49,7 @@
            <number>6000</number>
           </property>
           <property name="text">
-           <string notr="true">Ship</string>
+           <string>Ship</string>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -59,7 +59,7 @@
         <item row="0" column="1">
          <widget class="QPushButton" name="deleteGroupButton">
           <property name="text">
-           <string notr="true">Delete</string>
+           <string>Delete</string>
           </property>
          </widget>
         </item>
@@ -110,14 +110,14 @@
           <item>
            <widget class="QPushButton" name="setAdmiralButton">
             <property name="text">
-             <string notr="true">Set Admiral</string>
+             <string>Set Admiral</string>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QPushButton" name="viewShipButton">
             <property name="text">
-             <string notr="true">View</string>
+             <string>View</string>
             </property>
            </widget>
           </item>

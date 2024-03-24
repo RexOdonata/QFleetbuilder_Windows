@@ -32,7 +32,7 @@
       <item>
        <widget class="QLabel" name="numLabel">
         <property name="text">
-         <string notr="true">num</string>
+         <string>num</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -42,7 +42,7 @@
       <item>
        <widget class="QLabel" name="div">
         <property name="text">
-         <string notr="true">/</string>
+         <string>/</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -52,7 +52,7 @@
       <item>
        <widget class="QLabel" name="maxLabel">
         <property name="text">
-         <string notr="true">max</string>
+         <string>max</string>
         </property>
        </widget>
       </item>

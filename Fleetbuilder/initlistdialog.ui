@@ -28,7 +28,7 @@
       <item>
        <widget class="QLabel" name="label">
         <property name="text">
-         <string notr="true">Points Limit</string>
+         <string>Points Limit</string>
         </property>
        </widget>
       </item>
@@ -44,7 +44,7 @@
     <item>
      <widget class="QRadioButton" name="ucmRadio">
       <property name="text">
-       <string notr="true">UCM</string>
+       <string>UCM</string>
       </property>
       <attribute name="buttonGroup">
        <string notr="true">factionRadioGroup</string>
@@ -54,7 +54,7 @@
     <item>
      <widget class="QRadioButton" name="scourgeRadio">
       <property name="text">
-       <string notr="true">Scourge</string>
+       <string>Scourge</string>
       </property>
       <attribute name="buttonGroup">
        <string notr="true">factionRadioGroup</string>
@@ -64,7 +64,7 @@
     <item>
      <widget class="QRadioButton" name="phrRadio">
       <property name="text">
-       <string notr="true">PHR</string>
+       <string>PHR</string>
       </property>
       <attribute name="buttonGroup">
        <string notr="true">factionRadioGroup</string>
@@ -74,7 +74,7 @@
     <item>
      <widget class="QRadioButton" name="shaltariRadio">
       <property name="text">
-       <string notr="true">Shaltari</string>
+       <string>Shaltari</string>
       </property>
       <attribute name="buttonGroup">
        <string notr="true">factionRadioGroup</string>
@@ -84,7 +84,7 @@
     <item>
      <widget class="QRadioButton" name="resistanceRadio">
       <property name="text">
-       <string notr="true">Resistance</string>
+       <string>Resistance</string>
       </property>
       <attribute name="buttonGroup">
        <string notr="true">factionRadioGroup</string>
@@ -94,7 +94,7 @@
     <item>
      <widget class="QPushButton" name="saveButton">
       <property name="text">
-       <string notr="true">New List</string>
+       <string>New List</string>
       </property>
      </widget>
     </item>

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>500</width>
+    <width>477</width>
     <height>518</height>
    </rect>
   </property>
@@ -71,7 +71,7 @@
           <item>
            <widget class="QLabel" name="typeLabel">
             <property name="text">
-             <string notr="true">type</string>
+             <string>type</string>
             </property>
            </widget>
           </item>
@@ -113,7 +113,7 @@
              <enum>QFrame::Sunken</enum>
             </property>
             <property name="text">
-             <string notr="true">Minimum Group Warning</string>
+             <string>Minimum Group Warning</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -138,7 +138,7 @@
              <enum>QFrame::Sunken</enum>
             </property>
             <property name="text">
-             <string notr="true">Too Many Groups Warning</string>
+             <string>Too Many Groups Warning</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -163,7 +163,7 @@
              <enum>QFrame::Sunken</enum>
             </property>
             <property name="text">
-             <string notr="true">Group Type Full Warning</string>
+             <string>Group Type Full Warning</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -179,7 +179,7 @@
              <number>5000</number>
             </property>
             <property name="text">
-             <string notr="true">Remove Excess Groups</string>
+             <string>Remove Excess Groups</string>
             </property>
            </widget>
           </item>
@@ -203,7 +203,7 @@
           <item>
            <widget class="QPushButton" name="addGroupButton">
             <property name="text">
-             <string notr="true">Add Group</string>
+             <string>Add Group</string>
             </property>
            </widget>
           </item>
@@ -236,7 +236,7 @@
           <item>
            <widget class="QPushButton" name="deleteCardButton">
             <property name="text">
-             <string notr="true">Delete BG</string>
+             <string>Delete BG</string>
             </property>
            </widget>
           </item>
@@ -256,7 +256,7 @@
           <item>
            <widget class="QPushButton" name="duplicateButton">
             <property name="text">
-             <string notr="true">Duplicate</string>
+             <string>Duplicate</string>
             </property>
            </widget>
           </item>
@@ -267,7 +267,7 @@
           <item row="2" column="1">
            <widget class="QLabel" name="pointsLabel">
             <property name="text">
-             <string notr="true">val</string>
+             <string>val</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -282,7 +282,7 @@
              </font>
             </property>
             <property name="text">
-             <string notr="true">SR</string>
+             <string>SR</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -297,7 +297,7 @@
              </font>
             </property>
             <property name="text">
-             <string notr="true">Points</string>
+             <string>Points</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
@@ -307,7 +307,7 @@
           <item row="2" column="2">
            <widget class="QLabel" name="srLabel">
             <property name="text">
-             <string notr="true">val</string>
+             <string>val</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>

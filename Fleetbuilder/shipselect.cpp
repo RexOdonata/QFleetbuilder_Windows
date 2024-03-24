@@ -115,6 +115,8 @@ shipSelect::~shipSelect()
     delete ui;
 }
 
+// given the selected ship, load the ship view andset that ship to be selected
+
 void shipSelect::selectShip(QString shipName)
 {
     if (shipData->contains(shipName))

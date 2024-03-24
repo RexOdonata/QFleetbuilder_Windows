@@ -29,7 +29,7 @@
          <item>
           <widget class="QPushButton" name="getSearchButton">
            <property name="text">
-            <string notr="true">Select Search</string>
+            <string>Select Search</string>
            </property>
           </widget>
          </item>
@@ -48,7 +48,7 @@
        <item>
         <widget class="QLabel" name="label_2">
          <property name="text">
-          <string notr="true">Click on ship in tree to select</string>
+          <string>Click on ship in tree to select</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -104,7 +104,7 @@
               </font>
              </property>
              <property name="text">
-              <string notr="true">Valid Options</string>
+              <string>Valid Options</string>
              </property>
              <property name="checkable">
               <bool>true</bool>
@@ -129,7 +129,7 @@
          <item>
           <widget class="QPushButton" name="selectOptionsButton">
            <property name="text">
-            <string notr="true">Select Options</string>
+            <string>Select Options</string>
            </property>
           </widget>
          </item>

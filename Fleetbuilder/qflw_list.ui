@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="sizePolicy">
-   <sizepolicy hsizetype="Preferred" vsizetype="Ignored">
+   <sizepolicy hsizetype="Ignored" vsizetype="Ignored">
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
@@ -29,7 +29,7 @@
          <item>
           <widget class="QLabel" name="label">
            <property name="text">
-            <string notr="true">Points:</string>
+            <string>Points:</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -42,7 +42,7 @@
          <item>
           <widget class="QLabel" name="label_2">
            <property name="text">
-            <string notr="true">Launch:</string>
+            <string>Launch:</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -66,7 +66,7 @@
              <item>
               <widget class="QLabel" name="label_4">
                <property name="text">
-                <string notr="true">Name</string>
+                <string>Name</string>
                </property>
               </widget>
              </item>
@@ -91,7 +91,7 @@
                 </font>
                </property>
                <property name="text">
-                <string notr="true">Faction</string>
+                <string>Faction</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -116,7 +116,7 @@
          <item>
           <widget class="QPushButton" name="addPF_Button">
            <property name="text">
-            <string notr="true"> +PF</string>
+            <string> +PF</string>
            </property>
           </widget>
          </item>
@@ -133,7 +133,7 @@
          <item>
           <widget class="QPushButton" name="addLN_Button">
            <property name="text">
-            <string notr="true">+LN</string>
+            <string>+LN</string>
            </property>
           </widget>
          </item>
@@ -150,7 +150,7 @@
          <item>
           <widget class="QPushButton" name="addVG_Button">
            <property name="text">
-            <string notr="true">+VG</string>
+            <string>+VG</string>
            </property>
           </widget>
          </item>
@@ -167,7 +167,7 @@
          <item>
           <widget class="QPushButton" name="addFL_Button">
            <property name="text">
-            <string notr="true">+FL</string>
+            <string>+FL</string>
            </property>
           </widget>
          </item>
@@ -199,7 +199,7 @@
           <enum>QFrame::Sunken</enum>
          </property>
          <property name="text">
-          <string notr="true">Battlegroup Overburdened Label</string>
+          <string>Battlegroup Overburdened Label</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -218,7 +218,7 @@
           <enum>QFrame::Sunken</enum>
          </property>
          <property name="text">
-          <string notr="true">Minimum Cards Label</string>
+          <string>Minimum Cards Label</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
