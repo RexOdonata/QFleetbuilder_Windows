@@ -28,8 +28,11 @@
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
           <widget class="QLabel" name="label">
+           <property name="autoFillBackground">
+            <bool>true</bool>
+           </property>
            <property name="text">
-            <string>Points:</string>
+            <string notr="true">Points:</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -41,8 +44,11 @@
          </item>
          <item>
           <widget class="QLabel" name="label_2">
+           <property name="autoFillBackground">
+            <bool>true</bool>
+           </property>
            <property name="text">
-            <string>Launch:</string>
+            <string notr="true">Launch:</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -65,8 +71,11 @@
             <layout class="QHBoxLayout" name="horizontalLayout_3">
              <item>
               <widget class="QLabel" name="label_4">
+               <property name="autoFillBackground">
+                <bool>true</bool>
+               </property>
                <property name="text">
-                <string>Name</string>
+                <string notr="true">Name</string>
                </property>
               </widget>
              </item>
@@ -189,6 +198,9 @@
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
         <widget class="QLabel" name="cardOverweightWarnLabel">
+         <property name="autoFillBackground">
+          <bool>true</bool>
+         </property>
          <property name="styleSheet">
           <string notr="true">background-color:rgb(204, 0, 0)</string>
          </property>
@@ -199,7 +211,20 @@
           <enum>QFrame::Sunken</enum>
          </property>
          <property name="text">
-          <string>Battlegroup Overburdened Label</string>
+          <string notr="true">Battlegroup Overburdened Label</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="tooManyBattlegroupsLabel">
+         <property name="styleSheet">
+          <string notr="true">background-color:rgb(204, 0, 0)</string>
+         </property>
+         <property name="text">
+          <string>Too Many Battlegroups Label</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
