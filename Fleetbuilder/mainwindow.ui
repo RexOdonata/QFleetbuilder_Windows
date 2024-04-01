@@ -147,8 +147,16 @@
     <addaction name="actionSimple_List"/>
     <addaction name="actionProfile_Cards"/>
    </widget>
+   <widget class="QMenu" name="menuVersion">
+    <property name="title">
+     <string>Version</string>
+    </property>
+    <addaction name="actionShip_Data"/>
+    <addaction name="actionFleetbuilder"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuPrint"/>
+   <addaction name="menuVersion"/>
   </widget>
   <action name="actionFleet_List">
    <property name="text">
@@ -213,6 +221,16 @@
   <action name="actionProfile_Cards">
    <property name="text">
     <string>Profile Cards</string>
+   </property>
+  </action>
+  <action name="actionShip_Data">
+   <property name="text">
+    <string>Ship Data</string>
+   </property>
+  </action>
+  <action name="actionFleetbuilder">
+   <property name="text">
+    <string>Fleetbuilder</string>
    </property>
   </action>
  </widget>

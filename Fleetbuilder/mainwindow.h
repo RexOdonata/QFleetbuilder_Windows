@@ -58,6 +58,10 @@ private slots:
 
     void on_actionProfile_Cards_triggered();
 
+    void on_actionFleetbuilder_triggered();
+
+    void on_actionShip_Data_triggered();
+
 private:
     Ui::MainWindow *ui;
 
@@ -69,6 +73,10 @@ private:
 
 
     // VARS
+
+    QString dataDateStr;
+
+    QString dataVersionStr;
 
     std::optional<QFleet_Faction> faction;
 

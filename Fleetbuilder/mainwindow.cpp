@@ -82,6 +82,8 @@ void MainWindow::on_actionNew_triggered()
         // load ship Data for the faction of the new list
         if (loadMapFromJsonFile(this))
         {
+            setSelectionLabels("");
+
             listWidget = new QFLW_List(this);
 
             listWidget->setFaction(data.listFaction);
@@ -134,6 +136,10 @@ bool MainWindow::loadMapFromJsonFile(QWidget * parentWindow)
                 QJsonObject loadObj = wrapperObj[fileType_shipData()].toObject();
 
                 loadData = QFleet_Data(loadObj);
+
+                dataDateStr = loadData.getDateStr();
+
+                dataVersionStr = loadData.getVersionStr();
 
                 for (auto& la : loadData.launchData)
                     if (la.factions.contains(*this->faction))
@@ -213,6 +219,7 @@ bool MainWindow::loadListFromFile()
             msg.exec();
         }
 
+        setSelectionLabels("");
 
         return true;
     }
@@ -850,5 +857,37 @@ void MainWindow::slotShipReset(const QString str)
     selectedShip.reset();
 
     setSelectionLabels(str);
+}
+
+
+void MainWindow::on_actionFleetbuilder_triggered()
+{
+    QMessageBox msg(this);
+    msg.setWindowTitle("Build");
+    msg.setText("Build Date: " + QString(__DATE__));
+    msg.exec();
+}
+
+
+void MainWindow::on_actionShip_Data_triggered()
+{
+    QMessageBox msg(this);
+
+    QString dateStr = dataDateStr;
+
+    QString versionStr = dataVersionStr;
+
+    if (dateStr.isEmpty())
+        dateStr = "???";
+
+    if (versionStr.isEmpty())
+        versionStr = "???";
+
+    QString str = QString("Stats version %1 - encode date %2").arg(versionStr,dateStr);
+    msg.setText(str);
+
+    msg.setWindowTitle("Ship Data Info");
+
+    msg.exec();
 }
 
