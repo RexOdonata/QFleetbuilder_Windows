@@ -38,6 +38,9 @@ MainWindow::MainWindow(QWidget *parent)
 
     setSelectionLabels("");
 
+    ui->shipMenuButton->setVisible(false);
+    ui->selectedShipLabel->setVisible(false);
+
 }
 
 MainWindow::~MainWindow()
@@ -77,30 +80,23 @@ void MainWindow::on_actionNew_triggered()
 
     if (r==QDialog::Accepted)
     {
-        faction = data.listFaction;
+        setSelectionLabels("");
 
-        // load ship Data for the faction of the new list
-        if (loadMapFromJsonFile(this))
-        {
-            setSelectionLabels("");
+        QFleet_List blankList("New List",data.listFaction, data.listPoints,false);
 
-            listWidget = new QFLW_List(this);
+        drawGUIFromListPart(blankList);
 
-            listWidget->setFaction(data.listFaction);
-            listWidget->setPointsLimit(data.listPoints);
+        ui->fleetBox->addWidget(listWidget);
 
-            pointsLimit = data.listPoints;
-
-            ui->fleetBox->addWidget(listWidget);
-        }
-        else
-        {
-            QMessageBox msg(this);
-            msg.setText("Couldn't load ship data");
-            msg.setWindowTitle("Error");
-            msg.exec();
-        }
-
+        ui->shipMenuButton->setVisible(true);
+        ui->selectedShipLabel->setVisible(true);
+    }
+    else
+    {
+        QMessageBox msg(this);
+        msg.setText("Invalid list parameters");
+        msg.setWindowTitle("Error");
+        msg.exec();
     }
 
 }
@@ -244,16 +240,19 @@ void MainWindow::on_actionLoad_triggered()
 
 void MainWindow::drawGUIFromListPart(const QFleet_List& list)
 {
+    this->pointsLimit = list.getPointsLimit();
     this->faction = list.getFaction();
 
     // Load ships for the faction matching the loaded list
     if (loadMapFromJsonFile(this))
-    {
-        this->pointsLimit = list.getPointsLimit();
+    {        
 
         this->listWidget = new QFLW_List(this, list);
 
         ui->fleetBox->addWidget(listWidget);
+
+        ui->shipMenuButton->setVisible(true);
+        ui->selectedShipLabel->setVisible(true);
     }
     else
     {

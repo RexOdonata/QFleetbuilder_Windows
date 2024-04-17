@@ -129,12 +129,18 @@ void shipSelect::selectShip(QString shipName)
 
         this->ship = fleetShip;
         // check if the selected ship has mandatory options which won't have been selected at this point
-        if (checkMinOpts(indexShip))
+        if (indexShip.minOptions == 0)
         {
             this->valid = true;
             ui->validCheck->setChecked(Qt::Checked);
             emit signalSendShip(fleetShip);
-            ui->selectOptionsButton->setEnabled(false);
+
+            bool availableOptions = false;
+
+            if (indexShip.maxOptions > 0)
+                availableOptions = true;
+
+            ui->selectOptionsButton->setEnabled(availableOptions);
         }
         else
         {
@@ -238,14 +244,6 @@ void shipSelect::on_treeView_clicked(const QModelIndex &index)
     ui->shipSearchEdit->clear();
 
     selectShip(shipName);
-}
-
-bool shipSelect::checkMinOpts(const QFleet_Ship_Shipyard& ship)
-{
-    if (ship.minOptions > 0)
-            return false;
-    else
-            return true;
 }
 
 void shipSelect::slotGetCustomName(QString set)

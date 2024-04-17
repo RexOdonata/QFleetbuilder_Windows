@@ -77,8 +77,6 @@ private:
 
     void insertShip(std::array<QStandardItem *,5> model, const QString);
 
-    bool checkMinOpts(const QFleet_Ship_Shipyard&);
-
     // take a ship from source and convert into a fleet ship.
     QFleet_Ship_Fleet createShip(const QFleet_Ship_Shipyard&, QVector<QFleet_Option>&, const QString);
 };

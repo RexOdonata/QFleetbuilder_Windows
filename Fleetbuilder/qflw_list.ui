@@ -123,9 +123,19 @@
           </widget>
          </item>
          <item>
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>Battlegroups</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QPushButton" name="addPF_Button">
            <property name="text">
-            <string> +PF</string>
+            <string>+Pathfinder</string>
            </property>
           </widget>
          </item>
@@ -142,7 +152,7 @@
          <item>
           <widget class="QPushButton" name="addLN_Button">
            <property name="text">
-            <string>+LN</string>
+            <string>+Line</string>
            </property>
           </widget>
          </item>
@@ -159,7 +169,7 @@
          <item>
           <widget class="QPushButton" name="addVG_Button">
            <property name="text">
-            <string>+VG</string>
+            <string>+Vanguard</string>
            </property>
           </widget>
          </item>
@@ -176,7 +186,7 @@
          <item>
           <widget class="QPushButton" name="addFL_Button">
            <property name="text">
-            <string>+FL</string>
+            <string>+Flag</string>
            </property>
           </widget>
          </item>
@@ -199,7 +209,7 @@
        <item>
         <widget class="QLabel" name="cardOverweightWarnLabel">
          <property name="autoFillBackground">
-          <bool>true</bool>
+          <bool>false</bool>
          </property>
          <property name="styleSheet">
           <string notr="true">background-color:rgb(204, 0, 0)</string>

@@ -24,7 +24,7 @@ shipView::shipView(QWidget *parent) :
     ui->weaponTableWidget->setHorizontalHeaderItem(NAME, new QTableWidgetItem("Name"));
     ui->weaponTableWidget->setHorizontalHeaderItem(LOCK, new QTableWidgetItem("Lock"));
     ui->weaponTableWidget->setHorizontalHeaderItem(ATTACKS, new QTableWidgetItem("Attacks"));
-    ui->weaponTableWidget->setHorizontalHeaderItem(DAMAGE, new QTableWidgetItem("damage"));
+    ui->weaponTableWidget->setHorizontalHeaderItem(DAMAGE, new QTableWidgetItem("Damage"));
     ui->weaponTableWidget->setHorizontalHeaderItem(ARC, new QTableWidgetItem("Arc"));
     ui->weaponTableWidget->setHorizontalHeaderItem(SPECIAL, new QTableWidgetItem("Special"));
 
@@ -32,7 +32,7 @@ shipView::shipView(QWidget *parent) :
 
     ui->launchTableWidget->setHorizontalHeaderItem(NAME, new QTableWidgetItem("Name"));
     ui->launchTableWidget->setHorizontalHeaderItem(LAUNCH, new QTableWidgetItem("Launch"));
-    ui->launchTableWidget->setHorizontalHeaderItem(LIMITED, new QTableWidgetItem("lim"));
+    ui->launchTableWidget->setHorizontalHeaderItem(LIMITED, new QTableWidgetItem("Limited"));
 
 }
 
