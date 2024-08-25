@@ -65,7 +65,9 @@ jobs:
       with:
         name: QFleetWindowsDeployment
         Path: |
-          ${{github.workspace}}/
+          ${{github.workspace}}
+          
+    run: ls
 
     - name: get commit short
       id: vars
