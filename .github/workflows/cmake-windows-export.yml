@@ -45,7 +45,7 @@ jobs:
 
     - name: copy QFS File
       shell: powershell
-      run: Copy-Item -Path ${{github.workspace}}\ships.qfs -Destination ${{github.workspace}}\build\QFleetApplications\Release
+      run: Copy-Item -Path ${{github.workspace}}\ships.qfs -Destination ${{github.workspace}}\build\QFleetApplications\Release\data
       
     - run: tree
 
@@ -63,7 +63,7 @@ jobs:
     - name: zip outputs
       uses: vimtor/action-zip@v1.2
       with:
-        files: ${{github.workspace}}/build/QFleetApplications/Release/
+        files: ${{github.workspace}}\build\QFleetApplications\Release
         recursive: true
         dest: QFleetbuilder.zip
 
