@@ -37,7 +37,7 @@ jobs:
         Copy-Item -Path .\source\ListPrinter -Destination ${{github.workspace}}\ListPrinter -Recurse
         Copy-Item -Path .\source\ShipView -Destination ${{github.workspace}}\ShipView -Recurse
         Copy-Item -Path .\source\ShipYard -Destination ${{github.workspace}}\Shipyard -Recurse
-      run: tree
+        tree
 
     - name: Install Qt
       uses: jurplel/install-qt-action@v3
