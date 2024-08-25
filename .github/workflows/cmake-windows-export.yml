@@ -60,13 +60,6 @@ jobs:
         Path: |
           ${{github.workspace}}/build/QFleetApplications/Release
 
-    - name: zip outputs
-      uses: vimtor/action-zip@v1.2
-      with:
-        files: ${{github.workspace}}\build\QFleetApplications\Release
-        recursive: true
-        dest: QFleetbuilder.zip
-
     - name: get commit short
       id: vars
       run: echo "sha_short=$(git rev-parse --short HEAD)" >> $env:GITHUB_OUTPUT
@@ -75,7 +68,7 @@ jobs:
       uses: ncipollo/release-action@v1
       with:
         name: QFleetbuilder ${{ steps.date.outputs.date }}
-        artifacts: ${{github.workspace}}/QFleetbuilder.zip
+        artifacts: ${{github.workspace}}/build/QFleetApplications/Release/QFleetWindowsDeployment.zip
         commit: ${{github.ref}}
         tag: alpha/v0-${{ steps.vars.outputs.sha_short }}
 
