@@ -1,5 +1,0 @@
-<html>
-{% include htmlTemplates/listHeader.txt %}
-{% include htmlTemplates/battlegroupHeader.txt %}
-{% include htmlTemplates/launchAssets.txt %}
-</html>

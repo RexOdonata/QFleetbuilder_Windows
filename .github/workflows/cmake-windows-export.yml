@@ -21,6 +21,18 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    
+    - name: Clone QFleet
+      uses: GuillaumeFalourd/clone-github-repo-action@v2.3
+      with:
+        owner: 'RexOdonata'
+        repository: 'QFleet'
+        depth: 1
+        branch: 'main'
+        
+    - run: ls  
+    
+    - run: Copy-Item -Path "Qfleet\*.*" -Destination "${{github.workspace}}/build" - Force
 
     - name: Install Qt
       uses: jurplel/install-qt-action@v3

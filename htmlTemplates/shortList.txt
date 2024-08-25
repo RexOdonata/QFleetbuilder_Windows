@@ -1,6 +1,0 @@
-<html>
-{% include htmlTemplates/listHeader.txt %}
-{% include htmlTemplates/listTree.txt %}
-{% include htmlTemplates/shipProfile.txt %}
-{% include htmlTemplates/launchAssets.txt %}
-</html>
