@@ -23,21 +23,7 @@ jobs:
     - uses: actions/checkout@v3
     
     - name: Prepare Source
-      run:  ;
-        mkdir source
-        git clone https://github.com/RexOdonata/QFleet.git source
-        Copy-Item -Path .\source\CMakeLists.txt -Destination ${{github.workspace}}
-        Copy-Item -Path .\source\common -Destination ${{github.workspace}}\common -Recurse
-        Copy-Item -Path .\source\Components -Destination ${{github.workspace}}\Components -Recurse
-        Copy-Item -Path .\source\compression -Destination ${{github.workspace}}\compression -Recurse
-        Copy-Item -Path .\source\Fleetbuilder -Destination ${{github.workspace}}\Fleetbuilder -Recurse
-        Copy-Item -Path .\source\Hangarbay -Destination ${{github.workspace}}\Hangarbay -Recurse
-        Copy-Item -Path .\source\htmlTemplates -Destination ${{github.workspace}}\htmlTemplates -Recurse
-        Copy-Item -Path .\source\ListParts -Destination ${{github.workspace}}\ListParts -Recurse
-        Copy-Item -Path .\source\ListPrinter -Destination ${{github.workspace}}\ListPrinter -Recurse
-        Copy-Item -Path .\source\ShipView -Destination ${{github.workspace}}\ShipView -Recurse
-        Copy-Item -Path .\source\ShipYard -Destination ${{github.workspace}}\Shipyard -Recurse
-        tree
+      run: git clone https://github.com/RexOdonata/QFleet.git
 
     - name: Install Qt
       uses: jurplel/install-qt-action@v3
@@ -47,7 +33,7 @@ jobs:
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
       # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+      run: cmake -B ${{github.workspace}}/build -S QFleet -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - name: Build
       # Build your program with the given configuration
@@ -55,11 +41,11 @@ jobs:
 
     - name: copy html templates
       shell: powershell
-      run: Copy-Item -Path ${{github.workspace}}\htmlTemplates -Destination ${{github.workspace}}\build\Fleetbuilder\Release -Recurse
+      run: Copy-Item -Path ${{github.workspace}}\QFleet\htmlTemplates -Destination ${{github.workspace}}\build\Fleetbuilder\Release -Recurse
 
     - name: copy QFS File
       shell: powershell
-      run: Copy-Item -Path ${{github.workspace}}\data -Destination ${{github.workspace}}\build\Fleetbuilder\Release -Recurse
+      run: Copy-Item -Path ${{github.workspace}}\QFleet\data -Destination ${{github.workspace}}\build\Fleetbuilder\Release -Recurse
 
     - name: Qt Deploy
       shell: powershell
