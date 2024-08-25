@@ -22,6 +22,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - run: tree
+
     - name: Install Qt
       uses: jurplel/install-qt-action@v3
       with:
