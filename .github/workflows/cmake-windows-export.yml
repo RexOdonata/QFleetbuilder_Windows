@@ -41,29 +41,29 @@ jobs:
 
     - name: copy html templates
       shell: powershell
-      run: Copy-Item -Path ${{github.workspace}}\QFleet\htmlTemplates -Destination ${{github.workspace}}\build\Fleetbuilder\Release -Recurse
+      run: Copy-Item -Path ${{github.workspace}}\QFleet\htmlTemplates -Destination ${{github.workspace}}\build\QFleetApplications\Release -Recurse
 
     - name: copy QFS File
       shell: powershell
-      run: Copy-Item -Path ${{github.workspace}}\ships.qfs -Destination ${{github.workspace}}\build\Fleetbuilder\Release
+      run: Copy-Item -Path ${{github.workspace}}\ships.qfs -Destination ${{github.workspace}}\build\QFleetApplications\Release
       
     - run: tree
 
     - name: Qt Deploy
       shell: powershell
-      run: ${{ env.Qt6_DIR }}\bin\windeployqt.exe --no-translations ${{github.workspace}}\build\Fleetbuilder\Release\QFleetbuilder.exe
+      run: ${{ env.Qt6_DIR }}\bin\windeployqt.exe --no-translations ${{github.workspace}}\build\QFleetApplications\Release\QFleetbuilder.exe
 
     - name: Store Artifacts
       uses: actions/upload-artifact@v4
       with:
         name: QFleetWindowsDeployment
         Path: |
-          ${{github.workspace}}/build/Fleetbuilder/Release
+          ${{github.workspace}}/build/QFleetApplications/Release
 
     - name: zip outputs
       uses: vimtor/action-zip@v1.2
       with:
-        files: ${{github.workspace}}/build/Fleetbuilder/Release/
+        files: ${{github.workspace}}/build/QFleetApplications/Release/
         recursive: true
         dest: QFleetbuilder.zip
 
