@@ -67,7 +67,7 @@ jobs:
         Path: |
           ${{github.workspace}}
           
-    run: ls
+    - run: ls
 
     - name: get commit short
       id: vars
