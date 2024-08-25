@@ -43,6 +43,8 @@ jobs:
       shell: powershell
       run: Copy-Item -Path ${{github.workspace}}\QFleet\htmlTemplates -Destination ${{github.workspace}}\build\QFleetApplications\Release -Recurse
 
+    - run: mkdir ${{github.workspace}}\build\QFleetApplications\Release\data
+
     - name: copy QFS File
       shell: powershell
       run: Copy-Item -Path ${{github.workspace}}\ships.qfs -Destination ${{github.workspace}}\build\QFleetApplications\Release\data\ships.qfs
