@@ -65,7 +65,8 @@ jobs:
     - name: zip outputs
       uses: vimtor/action-zip@v1.2
       with:
-        files:  ${{github.workspace}}\build\QFleetApplications\Release\
+      #apparently the path ehre is built in relative to workspace
+        files:  build/QFleetApplications/Release/
         recursive: true
         dest: QFleetbuilder.zip
 
