@@ -22,9 +22,21 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - run: git clone https://github.com/RexOdonata/QFleet.git .
-        
-    - run: tree
+    - name: Prepare Source
+      run: mkdir source
+      run: git clone https://github.com/RexOdonata/QFleet.git source
+      run: Copy-Item -Path .\source\CMakeLists.txt -Destination ${{github.workspace}}
+      run: Copy-Item -Path .\source\common -Destination ${{github.workspace}}\common -Recurse
+      run: Copy-Item -Path .\source\Components -Destination ${{github.workspace}}\Components -Recurse
+      run: Copy-Item -Path .\source\compression -Destination ${{github.workspace}}\compression -Recurse
+      run: Copy-Item -Path .\source\Fleetbuilder -Destination ${{github.workspace}}\Fleetbuilder -Recurse
+      run: Copy-Item -Path .\source\Hangarbay -Destination ${{github.workspace}}\Hangarbay -Recurse
+      run: Copy-Item -Path .\source\htmlTemplates -Destination ${{github.workspace}}\htmlTemplates -Recurse
+      run: Copy-Item -Path .\source\ListParts -Destination ${{github.workspace}}\ListParts -Recurse
+      run: Copy-Item -Path .\source\ListPrinter -Destination ${{github.workspace}}\ListPrinter -Recurse
+      run: Copy-Item -Path .\source\ShipView -Destination ${{github.workspace}}\ShipView -Recurse
+      run: Copy-Item -Path .\source\ShipYard -Destination ${{github.workspace}}\Shipyard -Recurse
+      run: tree
 
     - name: Install Qt
       uses: jurplel/install-qt-action@v3
@@ -62,7 +74,7 @@ jobs:
     - name: zip outputs
       uses: vimtor/action-zip@v1.2
       with:
-        files: build/Fleetbuilder/Release/
+        files: ${{github.workspace}}/build/Fleetbuilder/Release/
         recursive: true
         dest: QFleetbuilder.zip
 
