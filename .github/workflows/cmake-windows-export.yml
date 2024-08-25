@@ -59,6 +59,13 @@ jobs:
         name: QFleetWindowsDeployment
         Path: |
           ${{github.workspace}}/build/QFleetApplications/Release
+          
+    - name: Download Artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: QFleetWindowsDeployment
+        Path: |
+          ${{github.workspace}}/
 
     - name: get commit short
       id: vars
@@ -68,7 +75,7 @@ jobs:
       uses: ncipollo/release-action@v1
       with:
         name: QFleetbuilder ${{ steps.date.outputs.date }}
-        artifacts: ${{github.workspace}}/build/QFleetApplications/Release/QFleetWindowsDeployment.zip
+        artifacts: ${{github.workspace}}/QFleetWindowsDeployment.zip
         commit: ${{github.ref}}
         tag: alpha/v0-${{ steps.vars.outputs.sha_short }}
 
