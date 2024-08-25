@@ -22,15 +22,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     
-    - name: Clone QFleet
-      uses: GuillaumeFalourd/clone-github-repo-action@v2.3
-      with:
-        owner: 'RexOdonata'
-        repository: 'QFleet'
-        depth: 1
-        branch: 'main'
+    - run: git clone https://github.com/RexOdonata/QFleet.git
         
-    - run: ls  
+    - run: tree
 
     - name: Install Qt
       uses: jurplel/install-qt-action@v3
