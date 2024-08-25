@@ -46,6 +46,8 @@ jobs:
     - name: copy QFS File
       shell: powershell
       run: Copy-Item -Path ${{github.workspace}}\ships.qfs -Destination ${{github.workspace}}\build\Fleetbuilder\Release
+      
+    - run: tree
 
     - name: Qt Deploy
       shell: powershell
