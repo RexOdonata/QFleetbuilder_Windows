@@ -72,7 +72,7 @@ jobs:
     - name: zip outputs
       uses: vimtor/action-zip@v1.2
       with:
-        files:  ${{github.workspace}}/artifact
+        files:  ${{github.workspace}}/artifact/
         recursive: true
         dest: QFleetbuilder.zip
 
