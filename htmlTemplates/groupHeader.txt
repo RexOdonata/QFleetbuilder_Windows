@@ -1,8 +1,0 @@
-{% block groupHeader %}
-
-<div id="groupProfile">
-<h4>{{ count }}X {{ shipName }} {{ admiral }}</h4>
-{% include htmlTemplates/shipProfile.txt %}
-</div>
-
-{% endblock %}

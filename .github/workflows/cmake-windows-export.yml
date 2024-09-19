@@ -4,9 +4,9 @@ name: Windows CMake build and Release
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "cloner" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "cloner" ]
 
 env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
@@ -21,6 +21,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    
+    - name: Prepare Source
+      run: git clone https://github.com/RexOdonata/QFleet.git
 
     - run: tree
 
@@ -32,37 +35,44 @@ jobs:
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
       # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
-      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+      run: cmake -B ${{github.workspace}}/build -S QFleet -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
     - run: tree
 
     - name: Build
       # Build your program with the given configuration
-      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target QFleetbuilder
 
     - name: copy html templates
       shell: powershell
-      run: Copy-Item -Path ${{github.workspace}}\htmlTemplates -Destination ${{github.workspace}}\build\Fleetbuilder\Release -Recurse
+      run: Copy-Item -Path ${{github.workspace}}\QFleet\htmlTemplates -Destination ${{github.workspace}}\build\QFleetApplications\Release -Recurse
+
+    - run: mkdir ${{github.workspace}}\build\QFleetApplications\Release\data
 
     - name: copy QFS File
       shell: powershell
-      run: Copy-Item -Path ${{github.workspace}}\data -Destination ${{github.workspace}}\build\Fleetbuilder\Release -Recurse
+      run: Copy-Item -Path ${{github.workspace}}\ships.qfs -Destination ${{github.workspace}}\build\QFleetApplications\Release\data\ships.qfs
+      
+    - run: tree
 
     - name: Qt Deploy
       shell: powershell
-      run: ${{ env.Qt6_DIR }}\bin\windeployqt.exe --no-translations ${{github.workspace}}\build\Fleetbuilder\Release\QFleetbuilder.exe
+      run: ${{ env.Qt6_DIR }}\bin\windeployqt.exe --no-translations ${{github.workspace}}\build\QFleetApplications\Release\QFleetbuilder.exe
 
     - name: Store Artifacts
       uses: actions/upload-artifact@v4
       with:
         name: QFleetWindowsDeployment
         Path: |
-          ${{github.workspace}}/build/Fleetbuilder/Release
-
+          ${{github.workspace}}/build/QFleetApplications/Release
+          
+    - run: ls
+    
     - name: zip outputs
       uses: vimtor/action-zip@v1.2
       with:
-        files: build/Fleetbuilder/Release/
+      #apparently the path ehre is built in relative to workspace
+        files:  build/QFleetApplications/Release/
         recursive: true
         dest: QFleetbuilder.zip
 
