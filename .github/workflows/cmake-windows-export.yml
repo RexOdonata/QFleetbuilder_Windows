@@ -4,9 +4,10 @@ name: Windows CMake build and Release
 
 on:
   push:
-    branches: [ "cloner" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "cloner" ]
+    branches: [ "main" ]
+  workflow_dispatch:
 
 env:
   # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
