@@ -5,7 +5,7 @@ This repository serves to provide download and verification of the windows build
 
 Select the latest release and download QFleetbuilder.zip.
 
-Extract and run QFleetbuilder.exe.
+Extract and run QFleetbuilder.exe from the folder. Recommend extracting to a new folder bc all files are neccessary for the exe to run properly.
 
 Each release also provides source zips, and the workflow is available to show build steps, executable is built on github servers from source.
 
@@ -16,3 +16,6 @@ QFleetbuilder uses a seperate data file to store ship data. The 'ships.qfs' file
 As new stats come out and data file errors are corrected, see below link for updated data files:
 
 https://drive.google.com/drive/folders/1hS3xsaPEpk9XeCOj4PrCyfXQWG1ofUtN?usp=drive_link
+
+**Errors**
+If you get an error on launching, it probably means you don't have the MSVC redistributables installed. YOu can find the most recent ones for download from Microsoft.
